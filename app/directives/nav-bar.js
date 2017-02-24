@@ -10,7 +10,7 @@ export default ngModule => {
 
         var config = {
             elements: [
-                { name: "Hello", type: "link", url: "hello" },
+                { name: "Home", type: "link", url: "home" },
                 { name: "About", type: "link", url: "about" },
             ]   
         };
@@ -23,8 +23,7 @@ export default ngModule => {
             controller: controller,
             scope: {
                 orientation: '@'
-            },
-            
+            }
         };
     });
 };
