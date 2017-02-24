@@ -1,3 +1,4 @@
+import _ from 'underscore';
 
 export default ngModule => {
     if (ON_TEST) {
@@ -6,15 +7,15 @@ export default ngModule => {
 
     ngModule.directive("myNavBar", () => {
         require('./nav-bar.less');
-        const _ = require('underscore');
+
         var config = {
             elements: [
-                { name: "Home", type: "link", href: "http://www.google.com", active: true },
-                { name: "Profile", type: "link", href: "http://www.iamluisbarreras.com" },
+                { name: "Hello", type: "link", url: "hello" },
+                { name: "About", type: "link", url: "about" },
             ]   
         };
         var template = require('./nav-bar.html')
-            .replace(':mainContent', _.map(config.elements, generateNavbarElement).join('\n'));
+            .replace(':mainContent', _.map(config.elements, generateNavbarElement).join(""));
 
         return {
             restrict: 'EA',
@@ -33,12 +34,9 @@ function controller($scope, $element, $attrs, $transclude) {
 }
 
 function generateNavbarElement (elementConfig) {
-    var template = '<li role="presentation" class=":class">:content </li>';
+    var template = `<li role="presentation" ui-sref-active="active">:content </li>`;
     if (elementConfig.type === 'link') {
-        var linkTemplate = '<a href=":href">:name</a></li>'
-            .replace(':href', elementConfig.href)
-            .replace(':name', elementConfig.name);
-            
+        var linkTemplate = `<a ui-sref="${elementConfig.url}" >${elementConfig.name}</a>`;
         template = template.replace(':content', linkTemplate);
             
     }
