@@ -28,6 +28,7 @@ export default ngModule => {
     });
 };
 
+
 function controller($scope, $element, $attrs, $transclude) {
     $scope.orientationStyle = ($scope.orientation === "vertical") ? "nav-stacked" : "";
 }
