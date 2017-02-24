@@ -2,8 +2,6 @@ import angular from 'angular';
 import registerDirectives from './directives';
 import uirouter from 'angular-ui-router';
 
-
-
 if (ON_TEST) {
     require('angular-mocks/angular-mocks');
 }
