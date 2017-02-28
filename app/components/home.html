@@ -1,1 +1,16 @@
-<h3>hello world! {{gretting}}</h3>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Jokes </div>
+
+    <!-- Table -->
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>content</th> 
+        </tr>
+        <tr ng-repeat="joke in jokes">
+            <th>{{joke.id}}</th>
+            <th>{{joke.joke}}</th> 
+        </tr>
+  </table>
+</div>

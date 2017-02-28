@@ -1,7 +1,8 @@
 export default ngModule => {
     describe('hello-ctrl', () => {
-        beforeEach(window.module(ngModule.name));
         var $scope, $controller;
+        beforeEach(window.module(ngModule.name));
+        
         beforeEach(inject(function(_$controller_) {
             $controller = _$controller_;
             $scope = {};

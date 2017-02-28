@@ -4,7 +4,10 @@ export default ngModule => {
         require('./home.test').default(ngModule);
     }
 
-    ngModule.controller('homeCtrl',['$scope', function($scope) {
+    ngModule.controller('homeCtrl',['$scope', 'jokesService', function($scope, jokesService) {
         $scope.gretting = 'Controller saying hello';
+        jokesService.get().then(function(jokes) {
+            $scope.jokes = jokes;
+        });
     }]);
 };
