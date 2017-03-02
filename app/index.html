@@ -9,7 +9,11 @@
         <h1>Demo</h1>
         
         <ui-view name="nav">
-            <div my-nav-bar orientation="horizontal"></div>
+            <div my-nav-bar orientation="horizontal">
+                <li role="presentation">
+                    <a ui-sref="home" href="#">First transclude link</a>
+                </li>
+            </div>
         </ui-view>
         <ui-view></ui-view>
 

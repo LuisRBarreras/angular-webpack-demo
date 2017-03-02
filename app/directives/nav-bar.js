@@ -23,7 +23,8 @@ export default ngModule => {
             controller: controller,
             scope: {
                 orientation: '@'
-            }
+            },
+            transclude: true
         };
     });
 };
@@ -34,11 +35,10 @@ function controller($scope, $element, $attrs, $transclude) {
 }
 
 function generateNavbarElement (elementConfig) {
-    var template = `<li role="presentation" ui-sref-active="active">:content </li>`;
+    var template = `<li role="presentation" ui-sref-active="active">:content   </li>`;
     if (elementConfig.type === 'link') {
         var linkTemplate = `<a ui-sref="${elementConfig.url}" >${elementConfig.name}</a>`;
         template = template.replace(':content', linkTemplate);
-            
     }
     
     template = template.replace(':class', (elementConfig.active) ? 'active' : '');

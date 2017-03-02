@@ -1,6 +1,6 @@
 export default ngModule => {
     if (ON_TEST) {
-        require('./services.test.js');
+        require('./jokes-service.test.js');
     }
     
     ngModule.factory('jokesService', function($http) {
@@ -10,6 +10,6 @@ export default ngModule => {
                 var size = 10;          
                 return result.data.value.slice(random, random + size);
             })
-        }
+        };
     });
 };
